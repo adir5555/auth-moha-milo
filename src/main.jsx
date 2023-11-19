@@ -9,6 +9,14 @@ import {
 import AddCoffee from './components/AddCoffee.jsx';
 import UpdateCoffee from './components/UpdateCoffee.jsx';
 
+
+
+import Singup from './components/Singup.jsx';
+import Singin from './components/Singin.jsx';
+import AuthProvider from './provider/AuthProvider.jsx';
+import Users from './components/Users.jsx';
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,11 +31,30 @@ const router = createBrowserRouter([
     path: 'updateCoffee/:id', 
     element: <UpdateCoffee></UpdateCoffee>, 
     loader: ({params}) => fetch(`http://localhost:5000/coffee/${params.id}`)
+  },
+  {
+    path:'/singin',
+    element: <Singin></Singin>
+  },
+  {
+    path:'/singup',
+    element: <Singup></Singup>
+  },
+  {
+    path: '/users',
+    element: <Users></Users>,
+    loader: () => fetch('http://localhost:5000/user')
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   
+    
+   <AuthProvider>
+   <RouterProvider router={router} />
+   </AuthProvider>
+   
+ 
   </React.StrictMode>,
 )

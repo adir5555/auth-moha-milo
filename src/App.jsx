@@ -1,5 +1,5 @@
 
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import './App.css'
 import CoffeeCard from './components/CoffeeCard';
 import { useState } from 'react';
@@ -22,6 +22,11 @@ function App() {
           ></CoffeeCard>)
         }
       </div>
+      <Link to={'singup'}><button>sing up</button></Link>
+      <hr />
+      <Link to={'singin'}><button>sing in update now</button></Link>
+      <hr />
+      <Link to={'/users'}><button>users</button></Link>
     </div>
   )
 }

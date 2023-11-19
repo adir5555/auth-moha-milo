@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import {  Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -119,8 +119,10 @@ const UpdateCoffee = () => {
                     </div>
                 </div>
                 <input type="submit" value="Update Coffee" className="btn btn-block" />
+                
 
             </form>
+            <Link to={'/'}><button>app</button></Link>
         </div>
     );
 };
